@@ -1,0 +1,11 @@
+---
+
+- name: git
+  git: 
+    repo: https://github.com/powerline/fonts.git 
+    dst: ~/fonts
+- name: install fonts
+  command:
+    args:
+        cmd: ./install.sh
+        chdir: ~/fonts

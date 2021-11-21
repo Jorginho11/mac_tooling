@@ -1,0 +1,74 @@
+#fzf dependencies
+- homebrew:
+    name: fzf 
+    state: present
+- homebrew:
+    name: the_silver_searcher   
+    state: present
+- homebrew:
+    name: bat
+    state: present
+- homebrew:
+    name: ripgrep
+    state: present
+
+- homebrew:
+    name: node   
+    state: present
+      #- shell:
+      # cmd: brew link -- overwrite node
+- name: Install typescript
+  npm:
+    name: typescript
+    global: yes
+    state: present
+
+#Python supports
+- name: Install python utilities for ale
+  pip:
+    name: 
+      - pycodestyle
+      - autopep8
+      - flake8
+      - pylint
+      - yamllint
+
+#Javascript/Typescript plugins
+- name: Install eslint
+  npm:
+    name: eslint
+    global: yes
+    state: present
+- name: Install jsonlint
+  npm:
+    name: jsonlint
+    global: yes
+    state: present
+- name: Install prettier
+  npm:
+    name: prettier
+    global: yes
+    state: present
+- name: Install eslint/prettier intergration
+  npm:
+    name: eslint-config-prettier
+    global: yes
+    state: present
+
+# Configure prettier
+- name: Copy prettier json configuration
+  template:
+    src: prettierrc.json.j2
+    dest: "{{ home_dir }}/.prettierrc.json"
+
+- name: Copy prettier yaml configuration
+  template:
+    src: prettierrc.yaml.j2
+    dest: "{{home_dir}}/.prettierrc.yaml"
+
+# Configure eslint and remove conflicts with prettier
+- name: Copy eslint typescript
+  template:
+    src: eslintrc.j2
+    dest: "{{home_dir}}/.eslintrc"
+

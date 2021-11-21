@@ -1,0 +1,4 @@
+---
+- homebrew:
+    name: iterm2    
+    state: present

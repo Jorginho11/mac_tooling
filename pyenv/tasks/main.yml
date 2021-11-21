@@ -1,0 +1,25 @@
+---
+#pyenv
+- homebrew:
+    name: openssl    
+    state: present
+
+- homebrew:
+    name: readline    
+    state: present
+
+- homebrew:
+    name: sqlite3    
+    state: present
+
+- homebrew:
+    name: xz    
+    state: present
+    
+- homebrew:
+    name: zlib  
+    state: present
+
+- homebrew:
+    name: pyenv
+    state: present
